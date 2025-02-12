@@ -1,3 +1,4 @@
 flask
 pyodbc
 python-dotenv
+waitress
