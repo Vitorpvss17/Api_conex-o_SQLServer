@@ -9,9 +9,9 @@ def get_connection():
     try:
         connection_string = (
             f"DRIVER={{ODBC Driver 17 for SQL Server}};"
-            f"SERVER={{DESKTOP-MVVV575,1433}};"
-            f"DATABASE={{Inst_Mari_Lelo}};"
-            f"Trusted_Connection=yes;"  # Usando autenticação integrada do Windows
+            f"SERVER=DESKTOP-MVVV575,1433;"
+            f"DATABASE=Inst_Mari_Lelo;"
+            f"Trusted_Connection=yes;"
         )
         conn = pyodbc.connect(connection_string)
         print("Conexão bem-sucedida com o banco de dados!")
