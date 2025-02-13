@@ -1,17 +1,20 @@
 import pyodbc
 import os
-import pymssql
+from dotenv import load_dotenv
 
-
+# Carrega as variáveis de ambiente do arquivo .env
+load_dotenv()
 
 def get_connection():
     try:
-        conn = pymssql.connect(
-            server='DESKTOP-MVVV575,1433',
-            database='Inst_Mari_Lelo',
-            user='Victor',
-            password='231136'
+        connection_string = (
+            f"DRIVER={{ODBC Driver 17 for SQL Server}};"
+            f"SERVER=DESKTOP-MVVV575,1433;"
+            f"DATABASE=Inst_Mari_Lelo;"
+            f"UID=Victor;"           # Substitua pelo usuário do SQL Server
+            f"PWD=231136;"
         )
+        conn = pyodbc.connect(connection_string)
         print("Conexão bem-sucedida com o banco de dados!")
         return conn
     except Exception as e:
